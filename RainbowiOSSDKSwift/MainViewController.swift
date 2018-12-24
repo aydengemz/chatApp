@@ -17,7 +17,7 @@ import UIKit
 import Rainbow
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var contactsButton: UIButton!
+   
     @IBOutlet weak var conversationsButton: UIButton!
     @IBOutlet weak var unreadMessagesCountLabel: UILabel!
     
@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactsButton.isEnabled = contactsLoaded
+        
         conversationsButton.isEnabled = conversationsLoaded
     }
  
@@ -67,7 +67,8 @@ class MainViewController: UIViewController {
         NSLog("Did end populating my network");
         contactsLoaded = true
         if isViewLoaded {
-            contactsButton.isEnabled = true
+            //contactsButton.isEnabled = true
+            print("d")
         }
     }
     
