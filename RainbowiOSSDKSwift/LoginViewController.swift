@@ -18,8 +18,8 @@ import Rainbow
 
 class LoginViewController: UIViewController {
     
+   // let rainbowServer = "Type in your email and password"
     let rainbowServer = "sandbox.openrainbow.com"
-    //let rainbowServer = "openrainbow.com"
     //let rainbowServer = "openrainbow.net"
  
     var server : String?

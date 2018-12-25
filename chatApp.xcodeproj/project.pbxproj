@@ -25,7 +25,9 @@
 		E5773BEC2099C4EF000BC714 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5773BEB2099C4EF000BC714 /* ContactsTableViewController.swift */; };
 		E5773BEE2099C5CC000BC714 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5773BED2099C5CC000BC714 /* ContactTableViewCell.swift */; };
 		E5773BF02099F3D9000BC714 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5773BEF2099F3D9000BC714 /* DetailViewController.swift */; };
+		F6D8A64321D2A83C006584E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8A64221D2A83C006584E5 /* HomeViewController.swift */; };
 		F6EB413E21D12B660020818C /* Storyboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6EB413D21D12B660020818C /* Storyboard2.storyboard */; };
+		F8E28A511A5AAADEBAD054B5 /* Pods_RainbowiOSSDKSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7ADB8F033BEB33F65EF42E4 /* Pods_RainbowiOSSDKSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2938BC1E88BF011CE525FD33 /* Pods-RainbowiOSSDKSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainbowiOSSDKSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-RainbowiOSSDKSwift/Pods-RainbowiOSSDKSwift.release.xcconfig"; sourceTree = "<group>"; };
+		6B9108669E2E9BD68EDFAED3 /* Pods-RainbowiOSSDKSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainbowiOSSDKSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RainbowiOSSDKSwift/Pods-RainbowiOSSDKSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		850C0EA421C890EC00EC2451 /* Rainbow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rainbow.framework; sourceTree = "<group>"; };
 		850C0EA621C890FB00EC2451 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
 		E54400ED2084E055008B90F2 /* RainbowiOSSDKSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainbowiOSSDKSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +66,9 @@
 		E5773BEB2099C4EF000BC714 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		E5773BED2099C5CC000BC714 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		E5773BEF2099F3D9000BC714 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F6D8A64221D2A83C006584E5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F6EB413D21D12B660020818C /* Storyboard2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard2.storyboard; sourceTree = "<group>"; };
+		F7ADB8F033BEB33F65EF42E4 /* Pods_RainbowiOSSDKSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RainbowiOSSDKSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,18 +78,29 @@
 			files = (
 				850C0EAC21C8913100EC2451 /* WebRTC.framework in Frameworks */,
 				850C0EAF21C8913500EC2451 /* Rainbow.framework in Frameworks */,
+				F8E28A511A5AAADEBAD054B5 /* Pods_RainbowiOSSDKSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07DA9244418461250AF85652 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6B9108669E2E9BD68EDFAED3 /* Pods-RainbowiOSSDKSwift.debug.xcconfig */,
+				2938BC1E88BF011CE525FD33 /* Pods-RainbowiOSSDKSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E54400E42084E055008B90F2 = {
 			isa = PBXGroup;
 			children = (
 				E54400EF2084E055008B90F2 /* RainbowiOSSDKSwift */,
 				E561CC8B216EB84C00C398FC /* Frameworks */,
 				E54400EE2084E055008B90F2 /* Products */,
+				07DA9244418461250AF85652 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +126,7 @@
 				E565D9E120AB3B670074597C /* ChatViewController.swift */,
 				E565D9E320AB3BB10074597C /* PeerTableViewCell.swift */,
 				E565D9E520AB3BDE0074597C /* MyUserTableViewCell.swift */,
+				F6D8A64221D2A83C006584E5 /* HomeViewController.swift */,
 				E54400F42084E055008B90F2 /* Main.storyboard */,
 				F6EB413D21D12B660020818C /* Storyboard2.storyboard */,
 				E54400F92084E05A008B90F2 /* LaunchScreen.storyboard */,
@@ -123,6 +141,7 @@
 			children = (
 				850C0EA621C890FB00EC2451 /* WebRTC.framework */,
 				850C0EA421C890EC00EC2451 /* Rainbow.framework */,
+				F7ADB8F033BEB33F65EF42E4 /* Pods_RainbowiOSSDKSwift.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -134,10 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E54400FF2084E05A008B90F2 /* Build configuration list for PBXNativeTarget "RainbowiOSSDKSwift" */;
 			buildPhases = (
+				89C660741ACF43CC0762ADA0 /* [CP] Check Pods Manifest.lock */,
 				E54400E92084E055008B90F2 /* Sources */,
 				E54400EA2084E055008B90F2 /* Frameworks */,
 				E54400EB2084E055008B90F2 /* Resources */,
 				850C0EAE21C8913100EC2451 /* Embed Frameworks */,
+				77346CCE7890FFFDF53B43A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,6 +216,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77346CCE7890FFFDF53B43A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RainbowiOSSDKSwift/Pods-RainbowiOSSDKSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RainbowiOSSDKSwift/Pods-RainbowiOSSDKSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89C660741ACF43CC0762ADA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RainbowiOSSDKSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E54400E92084E055008B90F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -211,6 +279,7 @@
 				E565D9E420AB3BB10074597C /* PeerTableViewCell.swift in Sources */,
 				E565D9E220AB3B670074597C /* ChatViewController.swift in Sources */,
 				E54400F12084E055008B90F2 /* AppDelegate.swift in Sources */,
+				F6D8A64321D2A83C006584E5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +421,7 @@
 		};
 		E54401002084E05A008B90F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B9108669E2E9BD68EDFAED3 /* Pods-RainbowiOSSDKSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -376,6 +446,7 @@
 		};
 		E54401012084E05A008B90F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2938BC1E88BF011CE525FD33 /* Pods-RainbowiOSSDKSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
