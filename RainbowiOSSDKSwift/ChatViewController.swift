@@ -69,6 +69,22 @@ class ChatViewController: UIViewController, UITextViewDelegate, CKItemsBrowserDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if self.navigationController == nil {
+            return
+        }
+        
+       
+        let navView = UIView()
+        
+        let label = UILabel()
+        label.text = contact?.fullName
+        label.sizeToFit()
+        label.center = navView.center
+        label.textAlignment = NSTextAlignment.center
+        navView.addSubview(label)
+        self.navigationItem.titleView = navView
+        navView.sizeToFit()
+        
         textInput.delegate = self
 
         if let photoData = contact?.photoData {
@@ -302,12 +318,12 @@ class ChatViewController: UIViewController, UITextViewDelegate, CKItemsBrowserDe
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let row = self.messages.count - indexPath.row - 1
         if let myCell = cell as? MyUserTableViewCell {
-            if myAvatar != nil {
+            if myAvatar == nil {
                 myCell.avatar.image = myAvatar
                 myCell.message.text = messages[row].text
             }
         } else if let peerCell = cell as? PeerTableViewCell {
-            if self.peerAvatar != nil {
+            if self.peerAvatar == nil {
                 peerCell.avatar.image = peerAvatar
                 peerCell.message.text = messages[row].text
             }

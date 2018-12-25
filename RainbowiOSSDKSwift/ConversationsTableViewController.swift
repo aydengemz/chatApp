@@ -115,7 +115,7 @@ class ConversationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "ChatWithSegue", sender: self)
+       // performSegue(withIdentifier: "ChatWithSegue", sender: self)
     }
     
     // MARK: - Navigation
