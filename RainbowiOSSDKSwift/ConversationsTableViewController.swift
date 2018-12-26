@@ -97,8 +97,25 @@ class ConversationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let conversationsCell = cell as? ConversationsTableViewCell {
+            
+        
             if let lastMessage = conversationsManager.conversations[indexPath.row].lastMessage {
+                
                 conversationsCell.lastMessage.text = lastMessage.body
+                //print(lastMessage.date)
+                conversationsCell.contactName.text = String(lastMessage.peer.displayName)
+                
+                //lastMessage.peer.rainbowID
+                //lastMessage.peer.calledNumber
+                
+                //ServicesManager.sharedInstance()?.contactsManagerService.fetchRemoteContactDetail(<#T##theContact: Contact!##Contact!#>)
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let myString = formatter.string(from: lastMessage.date)
+    
+                conversationsCell.dateSent.text = myString
+                
             } else {
                 conversationsCell.lastMessage.text = ""
             }
@@ -108,27 +125,33 @@ class ConversationsTableViewController: UITableViewController {
             } else {
                 conversationsCell.avatar.image = UIImage(named: "Default_Avatar")
                 conversationsCell.avatar.tintColor = UIColor(hue:CGFloat(indexPath.row*36%100)/100.0, saturation:1.0, brightness:1.0, alpha:1.0)
-            }
+            } 
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath
-        tableView.deselectRow(at: indexPath, animated: true)
-       // performSegue(withIdentifier: "ChatWithSegue", sender: self)
+        print("**************")
+        print(self.selectedIndex)
+       tableView.deselectRow(at: indexPath, animated: true)
+       performSegue(withIdentifier: "ChatWithSegue2", sender: self)
     }
-    
+ 
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ChatWithSegue" {
+        if segue.identifier == "ChatWithSegue2" {
             if let selectedIndex = selectedIndex {
                 if let vc = segue.destination as? ChatViewController {
                     if let contact = conversationsManager.conversations[selectedIndex.row].peer as? Contact {
                         vc.contact = contact
+                        
+                        if let cell = self.tableView.cellForRow(at: selectedIndex) as? ConversationsTableViewCell {
+                            vc.contactImage = (tableView.cellForRow(at: selectedIndex) as? ConversationsTableViewCell)?.avatar.image
+                            vc.contactImageTint = (tableView.cellForRow(at: selectedIndex) as? ConversationsTableViewCell)?.avatar.tintColor
+                        }
                     }
-                    vc.contactImage = (tableView.cellForRow(at: selectedIndex) as? ConversationsTableViewCell)?.avatar.image
-                    vc.contactImageTint = (tableView.cellForRow(at: selectedIndex) as? ConversationsTableViewCell)?.avatar.tintColor
+                    
                 }
             }
         }

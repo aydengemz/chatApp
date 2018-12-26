@@ -72,6 +72,11 @@ class LoginViewController: UIViewController {
     // MARK: - LoginManager notifications
     
     @objc func didLogin(notification : NSNotification) {
+       // print("************************")
+        
+        //ServicesManager.sharedInstance()?.
+        
+        
         if !Thread.isMainThread {
             DispatchQueue.main.sync {
                 self.didLogin(notification: notification)

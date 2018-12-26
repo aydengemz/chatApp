@@ -26,6 +26,7 @@ class ContactsTableViewController: UITableViewController {
     required init?(coder aDecoder: NSCoder) {
         serviceManager = ServicesManager.sharedInstance()
         contactsManager = serviceManager.contactsManagerService
+    
         super.init(coder: aDecoder)
     }
     
@@ -174,6 +175,7 @@ class ContactsTableViewController: UITableViewController {
             if let selectedIndex = self.selectedIndex {
                 if let vc = segue.destination as? DetailViewController {
                     vc.contact = allObjects[selectedIndex.row]
+                
                     if let cell = self.tableView.cellForRow(at: selectedIndex) as? ContactTableViewCell {
                         vc.contactImage = cell.avatar.image!
                         vc.contactImageTint = cell.avatar.tintColor

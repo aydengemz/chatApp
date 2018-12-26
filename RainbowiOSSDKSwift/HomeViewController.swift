@@ -36,8 +36,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // ServicesManager.sharedInstance().loginManager.
+        print("**************")
+        print(ServicesManager.sharedInstance()?.myUser.appID)
         
-       
+        let numContact:Int = (ServicesManager.sharedInstance()?.contactsManagerService.contacts.count)!
+        let numNetworks:Int = (ServicesManager.sharedInstance()?.groupsService.groups.count)!
+         NameLabel.text = ServicesManager.sharedInstance()?.myUser.contact.fullName
+        numberOfContactsLabel.text =  String(numContact)
+        numberOfNetworksLabel.text = String(numNetworks)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

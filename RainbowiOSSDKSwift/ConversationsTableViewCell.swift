@@ -18,6 +18,8 @@ import UIKit
 class ConversationsTableViewCell: UITableViewCell {
     @IBOutlet weak var lastMessage: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var contactName: UILabel!
+    @IBOutlet weak var dateSent: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
