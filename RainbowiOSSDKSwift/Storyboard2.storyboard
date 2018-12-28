@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgg-p5-sjY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2850.4000000000001" y="-572.56371814092961"/>
+            <point key="canvasLocation" x="-3175" y="-376"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="5gG-dT-syE">
@@ -225,9 +225,18 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxU-H9-2Is">
+                                            <rect key="frame" x="325" y="38" width="22" height="22"/>
+                                            <connections>
+                                                <action selector="getButtonIndex:" destination="Fo6-6A-XfU" eventType="touchUpInside" id="Uic-RK-vQ9"/>
+                                                <segue destination="rCX-gD-3GL" kind="show" identifier="ShowContactDetailSegue" id="Pnu-A8-SlP"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="quC-V9-Cuz" firstAttribute="top" secondItem="isA-lK-08t" secondAttribute="topMargin" constant="27.5" id="FSH-TV-o7B"/>
+                                        <constraint firstItem="dxU-H9-2Is" firstAttribute="centerY" secondItem="isA-lK-08t" secondAttribute="centerY" id="JaW-gw-5pg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dxU-H9-2Is" secondAttribute="trailing" constant="12" id="PmH-ii-xKJ"/>
                                         <constraint firstItem="quC-V9-Cuz" firstAttribute="leading" secondItem="gn4-2J-NOI" secondAttribute="trailing" constant="8" id="Q8a-2g-vFS"/>
                                         <constraint firstItem="gn4-2J-NOI" firstAttribute="leading" secondItem="isA-lK-08t" secondAttribute="leadingMargin" constant="8" id="WBt-po-cC6"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="gn4-2J-NOI" secondAttribute="bottom" constant="3.25" id="eQL-8b-vhU"/>
@@ -239,7 +248,7 @@
                                 <connections>
                                     <outlet property="avatar" destination="gn4-2J-NOI" id="XUU-u2-C8S"/>
                                     <outlet property="name" destination="quC-V9-Cuz" id="MmY-3Y-HzP"/>
-                                    <segue destination="rCX-gD-3GL" kind="show" identifier="ShowContactDetailSegue" trigger="accessoryAction" id="dhT-iM-bZm"/>
+                                    <segue destination="zNO-dY-NlT" kind="show" identifier="ShowMessagesFromContactSegue" id="bvR-ft-BXe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -252,7 +261,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av6-D9-sOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2103" y="-573"/>
+            <point key="canvasLocation" x="-2164" y="-970"/>
         </scene>
         <!--Recents-->
         <scene sceneID="b5W-eH-VlT">
@@ -551,4 +560,7 @@
     <resources>
         <image name="Default_Avatar" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bvR-ft-BXe"/>
+    </inferredMetricsTieBreakers>
 </document>

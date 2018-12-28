@@ -21,6 +21,7 @@ class ContactsTableViewController: UITableViewController {
     let contactsManager : ContactsManagerService
     var populated = false
     var selectedIndex : IndexPath? = nil
+    var selectedIndex2 : IndexPath? = nil
     var allObjects : [Contact] = []
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +33,7 @@ class ContactsTableViewController: UITableViewController {
     
     deinit {
         selectedIndex = nil
+        selectedIndex2 = nil
     }
 
     override func viewDidLoad() {
@@ -163,18 +165,35 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedIndex = indexPath
+        self.selectedIndex2 = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "ShowContactDetailSegue", sender: self)
+        print(self.selectedIndex2)
+        //performSegue(withIdentifier: "ShowContactDetailSegue", sender: self)
     }
-
+ 
+    @IBAction func getButtonIndex(_ sender: Any) {
+        print("clicked")
+        guard let cell = (sender as AnyObject).superview?.superview as? ContactTableViewCell else {
+            return // or fatalError() or whatever
+        }
+        
+        self.selectedIndex = self.tableView.indexPath(for: cell)
+        print(self.selectedIndex)
+    }
+    
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare called **************")
         if  segue.identifier == "ShowContactDetailSegue" {
+            print("ShowContactDetailSegue called **************")
             if let selectedIndex = self.selectedIndex {
+                print("selectedIndex")
                 if let vc = segue.destination as? DetailViewController {
+                    print("detailViewContoller")
                     vc.contact = allObjects[selectedIndex.row]
+                    print(vc.contact?.firstName)
                 
                     if let cell = self.tableView.cellForRow(at: selectedIndex) as? ContactTableViewCell {
                         vc.contactImage = cell.avatar.image!
@@ -183,6 +202,26 @@ class ContactsTableViewController: UITableViewController {
                 }
             }
         }
+        if  segue.identifier == "ShowMessagesFromContactSegue" {
+            print("segue invoked**")
+            
+            if let selectedIndex2 = self.selectedIndex2 {
+              // let selectedIndex2 = self.selectedIndex2
+            
+                print("selectedIndex**")
+                if let vc = segue.destination as? ChatViewController {
+                    print("vc**")
+                    
+                    vc.contact = allObjects[selectedIndex2.row]
+                        
+                    if let cell = self.tableView.cellForRow(at: selectedIndex2) as? ContactTableViewCell {
+                            vc.contactImage = (tableView.cellForRow(at: selectedIndex2) as? ContactTableViewCell)?.avatar.image
+                            vc.contactImageTint = (tableView.cellForRow(at: selectedIndex2) as? ContactTableViewCell)?.avatar.tintColor
+                        
+                    }
+                
+                    }
+               }
+            }
     }
-    
 }

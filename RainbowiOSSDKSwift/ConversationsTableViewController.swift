@@ -108,7 +108,7 @@ class ConversationsTableViewController: UITableViewController {
                 //lastMessage.peer.rainbowID
                 //lastMessage.peer.calledNumber
                 
-                //ServicesManager.sharedInstance()?.contactsManagerService.fetchRemoteContactDetail(<#T##theContact: Contact!##Contact!#>)
+                //ServicesManager.sharedInstance()?.contactsManagerService.fetchRemoteContactDetail()
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
