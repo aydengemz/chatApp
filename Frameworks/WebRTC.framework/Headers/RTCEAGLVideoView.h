@@ -18,9 +18,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class RTCEAGLVideoView;
-
 RTC_EXPORT
-@protocol RTCEAGLVideoViewDelegate<RTCVideoViewDelegate>
+@protocol RTCEAGLVideoViewDelegate
+
+- (void)videoView:(RTCEAGLVideoView *)videoView didChangeVideoSize:(CGSize)size;
+
 @end
 
 /**
@@ -30,7 +32,7 @@ RTC_EXPORT
 RTC_EXPORT
 @interface RTCEAGLVideoView : UIView <RTCVideoRenderer>
 
-@property(nonatomic, weak) id<RTCVideoViewDelegate> delegate;
+@property(nonatomic, weak) id<RTCEAGLVideoViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame
                        shader:(id<RTCVideoViewShading>)shader NS_DESIGNATED_INITIALIZER;

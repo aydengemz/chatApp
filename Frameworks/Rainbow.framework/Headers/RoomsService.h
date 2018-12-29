@@ -27,6 +27,7 @@ FOUNDATION_EXPORT NSString *const kRoomsServiceDidRemoveAllRooms;
 FOUNDATION_EXPORT NSString *const kRoomsServiceDidReceiveRoomInvitation;
 FOUNDATION_EXPORT NSString *const kRoomsServiceDidRoomInvitationStatusChanged;
 FOUNDATION_EXPORT NSString *const kRoomsServiceDidFailRemoveRoom;
+FOUNDATION_EXPORT NSString *const kRoomsServiceDidEndFetchingRooms;
 
 typedef void (^RoomsServiceAttachConferenceCompletionHandler) (NSError *error, Conference *conference);
 typedef void (^RoomsServiceDetachConferenceCompletionHandler) (NSError *error);
@@ -156,16 +157,34 @@ typedef void (^RoomsServiceCancelGuestUserCompletionHandler) (NSDictionary *resp
 -(void) updateRoom:(Room *) room withTopic:(NSString *) topic;
 
 /**
+ *  Update a room topic
+ *
+ *  @param room  the room that must be updated
+ *  @param topic new topic, can be `nil`
+ *  @param completionBlock  a code block called at completion of the asynchronous request, could be nil.
+ */
+-(void) updateRoom:(Room *) room withTopic:(NSString *) topic withCompletionBlock:(void (^)(NSError *error))completionBlock;
+
+/**
  *  Update a room name
  *
  *  @param room  the room that must be updated
- *  @param name new name, must be at least 4 chars long
+ *  @param name new name, must be at least 3 chars long
  */
 -(void) updateRoom:(Room *) room withName:(NSString *) name;
 
 /**
+ *  Update a room name
+ *
+ *  @param room  the room that must be updated
+ *  @param name new name, must be at least 3 chars long
+ *  @param completionBlock  a code block called at completion of the asynchronous request, could be nil.
+ */
+-(void) updateRoom:(Room *) room withName:(NSString *) name withCompletionBlock:(void (^)(NSError *error))completionBlock;
+
+/**
  *  Update a room participant's privilege.
- *  This is a asynchronous request, a kRoomsServiceDidUpdateRoom notification is triggered at completion
+ *  This is an asynchronous request, a kRoomsServiceDidUpdateRoom notification is triggered at completion
  *
  *  @param participant      the participant to update
  *  @param privilege        new privilege
@@ -173,6 +192,15 @@ typedef void (^RoomsServiceCancelGuestUserCompletionHandler) (NSDictionary *resp
  *  @param completionBlock  a code block called at completion of the asynchronous request, could be nil.
  */
 -(void) updateParticipant:(Participant *)participant withPrivilege:(ParticipantPrivilege)privilege inRoom:(Room *)room withCompletionBlock:(void (^)(NSError *error))completionBlock;
+
+/**
+ *  Change the owner of a room. The connected user has to be the owner and the selected participant has to be a moderator.
+ *  This is an asynchronous request, a kRoomsServiceDidUpdateRoom notification is triggered at completion.
+ *
+ *  @param participant      the participant to set as owner
+ *  @param room             the room in which the participant belongs
+ */
+-(void) changeOwner:(Room *) room withParticipant:(Participant *) participant;
 
 /**
  *  Upload a room avatar
@@ -231,6 +259,14 @@ typedef void (^RoomsServiceCancelGuestUserCompletionHandler) (NSDictionary *resp
  *  @param room room to delete
  */
 -(void) deleteRoom:(Room *) room;
+
+/**
+ *  Delete a room from server with a completion block
+ *
+ *  @param room             room to delete
+ *  @param completionBlock  a code block called at completion of the asynchronous request, could be nil.
+ */
+-(void) deleteRoom:(Room *) room  withCompletionBlock:(void (^)(NSError *error))completionBlock;
 
 /**
  *  Delete a room avatar from server
@@ -315,7 +351,5 @@ typedef void (^RoomsServiceCancelGuestUserCompletionHandler) (NSDictionary *resp
  *  @param completionHandler    block executed at the completion
  */
 -(void) cancelGuestUsers:(NSArray <NSString *> * _Nonnull) guests forRoom:( Room * _Nonnull) room withCompletionHandler:(RoomsServiceCancelGuestUserCompletionHandler _Nullable ) completionHandler;
-
--(Room*) getOrCreateRainbowRoomSynchronouslyWithJid:(NSString *) room_jid;
 
 @end

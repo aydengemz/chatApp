@@ -58,12 +58,12 @@ typedef void (^TelephonyServiceMakeCallCompletionHandler)(NSError * _Nullable er
 /**
  *  @return an array of calls ready to display
  */
-@property (nonatomic) NSArray* currentCallsToDisplay;
+@property (nonatomic, readonly) NSArray* _Nullable currentCallsToDisplay;
 
 /**
  *  @return the activeCall (from _calls) if any
  */
-@property (nonatomic) Call* currentActiveCall;
+@property (nonatomic, readonly) Call* _Nullable currentActiveCall;
 
 /**
  *  Activate telephony nomadic
@@ -169,10 +169,5 @@ typedef void (^TelephonyServiceMakeCallCompletionHandler)(NSError * _Nullable er
  *  Cancel current outgoing call (not yet displayed)
  */
 -(void) cancelOutgoingCall;
-
-/**
- *  Create a Phone Number from a phone string.
- */
-+(PhoneNumber *) getPhoneNumberFromString:(NSString *) phoneString;
 
 @end

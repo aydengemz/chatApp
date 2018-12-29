@@ -25,6 +25,9 @@
 FOUNDATION_EXPORT NSString *const kConferencesManagerDidAddConference;
 FOUNDATION_EXPORT NSString *const kConferencesManagerDidUpdateConference;
 FOUNDATION_EXPORT NSString *const kConferencesManagerDidRemoveConference;
+FOUNDATION_EXPORT NSString *const kConferencesManagerDidAllConferencesLoad;
+
+FOUNDATION_EXPORT NSString *const kConferencesManagerDidUpdateOpenInvite;
 
 FOUNDATION_EXPORT NSString *const kConferenceKey;
 FOUNDATION_EXPORT NSString *const kConferenceChangedAttributesKey;
@@ -48,6 +51,8 @@ typedef void (^ConferenceManagerInviteParticipantToJoinConferenceCompletionHandl
 typedef void (^ConferenceManagerDisconnectParticipantCompletionHandler) (NSError *error);
 typedef void (^ConferenceManagerCancelInvitationToJoinConferenceCompletionHandler) (NSError *error);
 typedef void (^ConferenceManagerAuthorizedPhoneNumbersCompletionHandler) (NSError *error, NSString *language, NSString *country, NSArray<PhoneNumber *> *shortList, NSArray<PhoneNumber *> *phoneNumberList);
+typedef void (^ConferenceManagerResetMyOpenInviteCompletionHandler) (NSError *error);
+typedef void (^ConferenceManagerArchiveMyOpenInviteCompletionHandler) (NSError *error);
 
 @property (nonatomic, readonly) NSArray<Conference *> *conferences;
 
@@ -57,6 +62,21 @@ typedef void (^ConferenceManagerAuthorizedPhoneNumbersCompletionHandler) (NSErro
 @property (nonatomic, readonly) BOOL hasWebRTCInstantConference;
 @property (nonatomic, readonly) BOOL hasPstnInstantConference;
 @property (nonatomic, readonly) BOOL hasJoinedConference;
+
+/**
+ * my personal OpenInvite room
+ */
+@property (nonatomic, strong) NSString *myOpenInviteRoomTitle;
+
+/**
+ * my personal OpenInvite room
+ */
+@property (nonatomic, readonly) Room *myOpenInviteRoom;
+
+/**
+ * my personal OpenInvite ID
+ */
+@property (nonatomic, readonly) NSString *myOpenInviteId;
 
 /**
  *  webRTC conference end point
@@ -178,14 +198,14 @@ typedef void (^ConferenceManagerAuthorizedPhoneNumbersCompletionHandler) (NSErro
  *  Cancel invitations for the given conference sent to given participant list
  *  @param  participants        Array of Participant to sent a cancel notification
  *  @param  conference          Conference where participants are invited
- *  @param  room                Room where participatns are invited
+ *  @param  room                Room where participants are invited
  *  @param  completionHandler   The block invoked when the invitations are cancelled
  */
 -(void) cancelInvitationSentToParticipants:(NSArray <Participant *> *) participants toConference:(Conference *) conference inRoom:(Room *) room completionBlock:(ConferenceManagerCancelInvitationToJoinConferenceCompletionHandler) completionHandler;
 
 /**
  *  Return an array of ConferenceParticipant from the room participant list
- *  @room room
+ *  @param room                 The room from which we want the participant list
  */
 -(NSArray<ConferenceParticipant*> *) createConferenceParticipantsFromRoom: (Room*) room;
 
@@ -205,15 +225,27 @@ typedef void (^ConferenceManagerAuthorizedPhoneNumbersCompletionHandler) (NSErro
 
 /**
  * Check if the given contact is in participant list of the conference
- * @param  contact              the contact to search
- * @param  conference           the conference in which the contact is searched
+ * @param  contact              The contact to search
+ * @param  conference           The conference in which the contact is searched
  */
 -(bool) hasContact:(Contact *)contact joinedConference: (Conference *)conference;
 
 /**
  * Check if myUser is in participant list of the conference
- * @param  conference           the conference in which the contact is searched
+ * @param  conference           The conference in which the contact is searched
  */
 -(bool) hasMyUserJoinedConference: (Conference *)conference;
+
+/**
+ *  Create a new open invite ID
+ *  @param  completionHandler   The block invoked when the invitation id has been reset
+ */
+-(void) resetMyOpenInviteIdWithCompletionHandler:(ConferenceManagerResetMyOpenInviteCompletionHandler)completionHandler;
+
+/**
+ *  Archive my open invite PSTN conference room
+ *  @param  name                The name of the archive room
+ */
+-(void)archiveMyOpenInviteConferenceWithName:(NSString *)name completionHandler:(ConferenceManagerArchiveMyOpenInviteCompletionHandler)completionHandler;
 
 @end

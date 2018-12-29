@@ -31,7 +31,7 @@
 /** Returns logs sorted by date. Most fresh = first item. */
 -(NSArray*) logs;
 
-// Remove logs file older than 7 days.
+// Remove logs file older than 2 days.
 -(void) cleanOldLogs;
 
 -(NSInteger) deleteAllLogs;

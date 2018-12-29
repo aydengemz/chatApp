@@ -108,6 +108,8 @@ typedef NS_ENUM(NSInteger, ChannelUserType) {
  */
 @property (nonatomic, readonly) int usersCount;
 
+@property (nonatomic, readonly) ChannelUserType userType;
+
 /**
  *  The array of published items in the channel
  */

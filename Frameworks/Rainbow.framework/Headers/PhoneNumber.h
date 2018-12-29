@@ -121,4 +121,9 @@ typedef NS_ENUM(NSInteger, PhoneNumberDeviceType) {
  * @discussion  there is no validation of phone number string given
  */
 -(instancetype) initWithPhoneNumberString:(NSString *) phoneNumberString;
+
+/**
+ * Boolean method indicating if this number is the user voice mail number (if he has one)
+ */
+-(BOOL) isVoiceMail;
 @end

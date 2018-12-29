@@ -176,6 +176,10 @@ typedef NS_ENUM(NSInteger, MessageGroupChatEventType) {
 @property (nonatomic, readonly) NSString *body;
 /** Message Body in markdown style */
 @property (nonatomic, readonly) NSString *bodyInMarkdown;
+/** Url of the image if the body starts with /img and has a correct url as parameter*/
+@property (nonatomic, readonly) NSString *imageUrl;
+/** Url of the static gif image if the body starts with /img and has a correct url as parameter */
+@property (nonatomic, readonly) NSString *staticGifUrl;
 /** Message timestamp */
 @property (nonatomic, readonly) NSDate *timestamp;
 /** Message date, it is a alias for the timestamp property */

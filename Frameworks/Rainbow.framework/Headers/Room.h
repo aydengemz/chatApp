@@ -99,6 +99,11 @@ typedef NS_ENUM(NSInteger, RoomVisibility) {
 @property (nonatomic, readonly) Conference *conference;
 
 /**
+ *  @return `YES` if this room is a personal meeting
+ */
+@property (nonatomic, readonly) BOOL isPersonalMeeting;
+
+/**
  *  Return the participant corresponding to the given contact
  *
  *  @param contact contact that must match into the participant list

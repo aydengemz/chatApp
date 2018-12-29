@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -134,7 +133,7 @@
                         <outlet property="loginTextField" destination="QVm-sW-XPD" id="HrY-J2-gWk"/>
                         <outlet property="passwordTextField" destination="6q4-bf-wdN" id="Iwf-z0-7zz"/>
                         <outlet property="serverLabel" destination="ENq-a1-TYI" id="51l-2v-Knt"/>
-                        <segue destination="aHZ-Oi-7Of" kind="show" identifier="DidLoginSegue" id="Hv2-RK-zIR"/>
+                        <segue destination="2fA-Ck-RE3" kind="show" identifier="DidLoginSegue" id="USG-iz-bdm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -220,7 +219,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1I-AV-bb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2273" y="203"/>
+            <point key="canvasLocation" x="1176" y="133"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cha-L7-qnL">
@@ -310,28 +309,12 @@
             </objects>
             <point key="canvasLocation" x="4042" y="164"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NFT-Ct-llp">
-            <objects>
-                <navigationController id="aHZ-Oi-7Of" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cGh-61-Cg2">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="2fA-Ck-RE3" kind="relationship" relationship="rootViewController" id="ONu-SD-deF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QML-3h-rTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="820" y="134"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Default_Avatar" width="40" height="40"/>
         <image name="eberhard-grossgasteiger-1036384-unsplash" width="3648" height="5472"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ONu-SD-deF"/>
+        <segue reference="USG-iz-bdm"/>
     </inferredMetricsTieBreakers>
 </document>

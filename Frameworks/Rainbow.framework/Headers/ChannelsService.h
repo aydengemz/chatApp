@@ -85,10 +85,16 @@ typedef void (^ChannelsServiceGetUsersCompletionHandler) (NSArray<ChannelUser *>
 
 /**
  *  Get a channel by its id
- *  @param  id                  the channel id
+ *  @param  channelId           the channel id
+ */
+-(Channel *)getChannelById:(NSString *)channelId;
+
+/**
+ *  Fetch a channel on server by its id
+ *  @param  channelId           the channel id
  *  @param  completionHandler   completion handler
  */
--(void)getChannelById:(NSString *)id completionHandler: (ChannelsServiceGetChannelCompletionHandler) completionHandler;
+-(void)fetchChannelById:(NSString *)channelId completionHandler: (ChannelsServiceGetChannelCompletionHandler) completionHandler;
 
 /**
  *  Enumerate all my channels by kinds, the ones I'm member of, the ones I'm also publisher and the ones I'm the owner

@@ -33,6 +33,7 @@ NSString* NSStringFromBOOL(BOOL aBoolean);
 + (NSDate *) dateWithLastModifiedHeaderString:(NSString *) dateString;
 + (NSDate *) dateFromString:(NSString *) dateString withFormat: (NSString *) formatString;
 + (NSString *) anonymizeString:(NSString *) string;
++ (NSString *) anonymizeXMPPString:(NSString *) string;
 + (NSString *) anonymizeNotificationRequest:(NSString *) request;
 + (NSString *) anonymizeNotificationUserInfo:(NSDictionary *) userInfo;
 + (NSString *)valueForKey:(NSString *)key fromURL:(NSURL *)url;
