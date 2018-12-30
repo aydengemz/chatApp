@@ -14,11 +14,8 @@ class MovieService {
     
     static let provider = MoyaProvider<MovieAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
-    
     static func genre(completion: @escaping (GenreList?)->()) {
-        
         provider.request(.genre()) { result in
-            
             switch result {
             case let .success(response):
                 let genreList = GenreList.initWith(data: response.data)
@@ -26,10 +23,53 @@ class MovieService {
                 completion(genreList)
             case let .failure(error):
                 print(error)
-                // TODO: error handler callback
-//                completion(nil)
             }
         }
+    }
+    
+    static func trailerKey(movieId: Int, completion: @escaping (String?)->()){
+      //  print("@@@" + "entered Remote call")
+        provider.request(.trailerKey(id: movieId)) { result in
+            
+            switch result {
+            case let .success(response):
+                let trailerList = TrailerList.initWith(data: response.data)
+                // s = (trailerList?.results?
+                let s = (trailerList?.results[0].key)!
+                //print("@@@ s is: " + s)
+                completion(s)
+            case let .failure(error):
+                print(error)
+                // TODO: error handler callback
+                //                completion(nil)
+            }
+        }
+       //print("@@@ s is: " + s + "at reutrn of trailer key")
+    
+    }
+    
+    
+    static func trailerKey2(movieId: Int) -> String {
+        print("@@@" + "entered Remote call")
+        var s = ""
+        provider.request(.trailerKey(id: movieId)) { result in
+            
+            switch result {
+            case let .success(response):
+                let trailerList = TrailerList.initWith(data: response.data)
+               // s = (trailerList?.results?
+                s = (trailerList?.results[0].key)!
+                print("@@@ s is: " + s)
+            case let .failure(error):
+                print(error)
+                // TODO: error handler callback
+                //                completion(nil)
+            }
+            
+           
+        }
+        print("@@@ s is: " + s + "at reutrn of trailer key")
+        return s
     }
     
     static func upcoming(page: Int, completion: @escaping (MovieList?)->()) {

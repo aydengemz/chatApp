@@ -103,6 +103,18 @@ class MovieListViewController: UITableViewController {
         {
             if let destination = segue.destination as? MovieDetailViewController {
                 destination.movie = movie
+                
+                print("@@@" + "\(movie.id)")
+               
+                
+                //let videoId = MovieService.trailerId(movieId: movie.id)
+                //destination.trailerURL = "https://www.youtube.com/watch?v=" + "\(videoId)"
+                
+                //print("@@@" + "\(destination.trailerURL)")
+                
+              //  print("@@@" + "\(movie.id)")
+                
+               
             }
         }
     }
@@ -111,6 +123,8 @@ class MovieListViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+   
     
 }
 

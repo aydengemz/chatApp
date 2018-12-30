@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller2-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController2" customModule="RainbowiOSSDKSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iXa-Fg-dWt" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iXa-Fg-dWt" secondAttribute="height" multiplier="16:9" constant="-201" id="f1f-xq-3qO"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uef-LY-dac">
+                                <rect key="frame" x="141" y="353" width="93" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="HPe-B2-KHD"/>
+                                    <constraint firstAttribute="height" constant="47" id="LyR-Tq-bCm"/>
+                                </constraints>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.18343256413936615" green="0.18342706561088562" blue="0.18343016505241394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="play:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jjz-fP-RBO"/>
+                                    <action selector="playWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ef7-hP-WOl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QV-Tq-ZoO">
+                                <rect key="frame" x="16" y="429" width="154" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="708-XN-qjF"/>
+                                    <constraint firstAttribute="width" constant="154" id="it9-BE-0cx"/>
+                                </constraints>
+                                <state key="normal" title="Load Video">
+                                    <color key="titleColor" red="0.1834325641" green="0.18342706559999999" blue="0.18343016509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadVideoWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5fI-hf-CbE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnM-c4-FYF">
+                                <rect key="frame" x="205" y="429" width="154" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="154" id="QCt-6J-Ag1"/>
+                                    <constraint firstAttribute="height" constant="47" id="qMo-fV-N3q"/>
+                                </constraints>
+                                <state key="normal" title="Load Playlist">
+                                    <color key="titleColor" red="0.1834325641" green="0.18342706559999999" blue="0.18343016509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loadPlaylist:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YPf-qB-rXe"/>
+                                    <action selector="loadPlaylistWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HwM-hV-CAH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUs-Bm-Uj9" userLabel="Get Current Time">
+                                <rect key="frame" x="16" y="504" width="343" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Ipo-u4-DL9"/>
+                                    <constraint firstAttribute="height" constant="47" id="oPO-X4-IxH"/>
+                                </constraints>
+                                <state key="normal" title="Current Time">
+                                    <color key="titleColor" red="0.1834325641" green="0.18342706559999999" blue="0.18343016509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="currentTime:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uVw-kM-Ose"/>
+                                    <action selector="currentTimeWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NLy-rD-EAe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKk-Z7-HPL">
+                                <rect key="frame" x="266" y="353" width="93" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="RgD-cQ-U1h"/>
+                                    <constraint firstAttribute="height" constant="47" id="VQW-1G-63F"/>
+                                </constraints>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.1834325641" green="0.18342706559999999" blue="0.18343016509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="next:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fsh-G8-rB7"/>
+                                    <action selector="nextWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t9O-dY-gZc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odQ-YH-WSP">
+                                <rect key="frame" x="16" y="353" width="93" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="ceb-aq-FvR"/>
+                                    <constraint firstAttribute="height" constant="47" id="jLd-el-ePa"/>
+                                </constraints>
+                                <state key="normal" title="Prev">
+                                    <color key="titleColor" red="0.1834325641" green="0.18342706559999999" blue="0.18343016509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="prev:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="25U-86-RBJ"/>
+                                    <action selector="prevWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GTt-Mw-dd2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaE-Ko-A0w" userLabel="Get Duration">
+                                <rect key="frame" x="16" y="570" width="343" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="BXx-yR-LHH"/>
+                                    <constraint firstAttribute="width" constant="343" id="MIA-fO-gqu"/>
+                                </constraints>
+                                <state key="normal" title="Duration">
+                                    <color key="titleColor" red="0.1834325641" green="0.18342706559999999" blue="0.18343016509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="duration:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h2d-4S-BgQ"/>
+                                    <action selector="durationWithSender:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KmY-CW-dd8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.092636585235595703" green="0.092633813619613647" blue="0.092635378241539001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uef-LY-dac" firstAttribute="top" secondItem="iXa-Fg-dWt" secondAttribute="bottom" constant="29" id="0bY-GC-kjX"/>
+                            <constraint firstItem="5QV-Tq-ZoO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="1AZ-sO-WZW"/>
+                            <constraint firstItem="gnM-c4-FYF" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="39N-nJ-dyX"/>
+                            <constraint firstItem="uef-LY-dac" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="47R-R6-SAF"/>
+                            <constraint firstItem="iXa-Fg-dWt" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="4nf-y9-g3F"/>
+                            <constraint firstAttribute="trailing" secondItem="iXa-Fg-dWt" secondAttribute="trailing" id="Bk0-zD-ERI"/>
+                            <constraint firstItem="iUs-Bm-Uj9" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Bro-Uh-j93"/>
+                            <constraint firstItem="UaE-Ko-A0w" firstAttribute="top" secondItem="iUs-Bm-Uj9" secondAttribute="bottom" constant="19" id="D9T-8H-cKe"/>
+                            <constraint firstItem="odQ-YH-WSP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="NXS-5N-WfM"/>
+                            <constraint firstItem="gnM-c4-FYF" firstAttribute="top" secondItem="uef-LY-dac" secondAttribute="bottom" constant="29" id="Se1-gf-aWs"/>
+                            <constraint firstItem="aKk-Z7-HPL" firstAttribute="top" secondItem="iXa-Fg-dWt" secondAttribute="bottom" constant="29" id="SvT-Pu-Nnn"/>
+                            <constraint firstItem="UaE-Ko-A0w" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="a0l-OH-DSc"/>
+                            <constraint firstItem="iXa-Fg-dWt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bKS-Az-Vgv"/>
+                            <constraint firstItem="aKk-Z7-HPL" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="e7M-ee-hbe"/>
+                            <constraint firstItem="iUs-Bm-Uj9" firstAttribute="top" secondItem="5QV-Tq-ZoO" secondAttribute="bottom" constant="28" id="oL4-zp-J7m"/>
+                            <constraint firstItem="odQ-YH-WSP" firstAttribute="top" secondItem="iXa-Fg-dWt" secondAttribute="bottom" constant="29" id="oLT-D6-C0X"/>
+                            <constraint firstItem="5QV-Tq-ZoO" firstAttribute="top" secondItem="uef-LY-dac" secondAttribute="bottom" constant="29" id="obh-Db-RFC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentTimeButton" destination="iUs-Bm-Uj9" id="bY2-X8-9Mo"/>
+                        <outlet property="durationButton" destination="UaE-Ko-A0w" id="b5x-PB-1vg"/>
+                        <outlet property="playButton" destination="uef-LY-dac" id="gyA-sR-DUu"/>
+                        <outlet property="playerView" destination="iXa-Fg-dWt" id="Fsl-zB-twA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="314.39999999999998" y="46.326836581709152"/>
+        </scene>
+    </scenes>
+</document>

@@ -28,6 +28,10 @@ class HomeViewController: UIViewController {
         // notification related to the ContactManagerService
         NotificationCenter.default.addObserver(self, selector: #selector(didEndPopulatingMyNetwork(notification:)), name: NSNotification.Name(kContactsManagerServiceDidEndPopulatingMyNetwork), object: nil)
         
+        //notification related to the groupService
+        NotificationCenter.default.addObserver(self, selector: #selector(didEndPopulatingMyGroup(notification:)), name: NSNotification.Name(kGroupsServiceDidUpdateGroupsForContact), object: nil)
+        
+        
         // notifications related to unread conversation count
         NotificationCenter.default.addObserver(self, selector: #selector(didEndLoadingConversations(notification:)), name:NSNotification.Name(kConversationsManagerDidEndLoadingConversations), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateMessagesUnreadCount(notification:)), name:NSNotification.Name(kConversationsManagerDidUpdateMessagesUnreadCount), object: nil)
@@ -39,11 +43,6 @@ class HomeViewController: UIViewController {
         print("**************")
         print(ServicesManager.sharedInstance()?.myUser.appID)
         
-        let numContact:Int = (ServicesManager.sharedInstance()?.contactsManagerService.contacts.count)!
-        let numNetworks:Int = (ServicesManager.sharedInstance()?.groupsService.groups.count)!
-         NameLabel.text = ServicesManager.sharedInstance()?.myUser.contact.fullName
-        numberOfContactsLabel.text =  String(numContact)
-        numberOfNetworksLabel.text = String(numNetworks)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,7 +71,42 @@ class HomeViewController: UIViewController {
             //contactsButton.isEnabled = true
             print("d")
         }
+        let n: Int = (ServicesManager.sharedInstance()?.conversationsManagerService.totalNbOfUnreadMessagesInAllConversations)!
+        unreadMessagesCountLabel.text = String(n)
+        
+        let numContact:Int = (ServicesManager.sharedInstance()?.contactsManagerService.contacts.count)!
+        numberOfContactsLabel.text =  String(numContact)
+        
+       
+        let name:String = (ServicesManager.sharedInstance()?.myUser.contact.fullName)!
+        NameLabel.text = name
+        
+        
+        let numNetworks:Int = (ServicesManager.sharedInstance()?.groupsService.groups.count)!
+        numberOfNetworksLabel.text = String(numNetworks)
+        
     }
+    
+    @objc func didEndPopulatingMyGroup(notification : Notification) {
+        // Enforce that this method is called on the main thread
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.didEndPopulatingMyGroup(notification: notification)
+            }
+            return
+        }
+        NSLog("Did end populating my group");
+        //contactsLoaded = true
+        if isViewLoaded {
+            //contactsButton.isEnabled = true
+            print("d")
+        }
+        
+        let numNetworks:Int = (ServicesManager.sharedInstance()?.groupsService.groups.count)!
+        numberOfNetworksLabel.text = String(numNetworks)
+        
+    }
+    
     // MARK: - Notifications related to unread conversation count
     
     @objc func didEndLoadingConversations(notification : Notification) {

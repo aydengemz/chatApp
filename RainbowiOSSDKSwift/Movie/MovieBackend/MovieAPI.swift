@@ -14,6 +14,7 @@ enum MovieAPI {
     case nowPlaying(page: Int)
     case movie(id: Int)
     case genre()
+    case trailerKey(id: Int)
 }
 
 extension MovieAPI: TargetType {
@@ -41,12 +42,14 @@ extension MovieAPI: TargetType {
             return "/movie/\(id)"
         case .genre():
             return "/genre/movie/list"
+        case .trailerKey(let id):
+            return "/movie/\(id)/videos"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .upcoming(_), .movie(_), .genre(), .nowPlaying(_):
+        case .upcoming(_), .movie(_), .genre(), .nowPlaying(_), .trailerKey(_):
             return .get
         }
     }
@@ -60,7 +63,7 @@ extension MovieAPI: TargetType {
         case .nowPlaying(let page):
             params["page"] = "\(page)"
             break
-        case .movie(_), .genre():
+        case .movie(_), .genre(), .trailerKey(_):
             break
         }
         return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
@@ -68,7 +71,7 @@ extension MovieAPI: TargetType {
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .upcoming(_), .movie(_), .genre(), .nowPlaying(_):
+        case .upcoming(_), .movie(_), .genre(), .nowPlaying(_), .trailerKey(_):
             return URLEncoding.queryString
         }
     }
@@ -87,6 +90,9 @@ extension MovieAPI: TargetType {
             break
         case .genre:
             filename = "genre" // TODO
+        case .trailerKey(_):
+            filename = "video"
+            break
         }
         guard let url = Bundle.main.url(forResource: filename, withExtension: "json"),
             let data = try? Data(contentsOf: url) else {

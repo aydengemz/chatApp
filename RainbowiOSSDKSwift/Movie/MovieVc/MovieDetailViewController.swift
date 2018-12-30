@@ -12,11 +12,20 @@ class MovieDetailViewController: UIViewController {
     
     var movie: Movie!
     
+    let youtubeBaseURL = "https://www.youtube.com/watch?v="
+    var trailerId: String!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //trailerId = MovieService.trailerKey(movieId: movie.id, completion: trailerId)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +40,37 @@ class MovieDetailViewController: UIViewController {
         if let imageURL = MovieService.bigCoverUrl(movie: movie) {
             self.coverImageView.load(url: imageURL)
         }
-        
+        //print(trailerId + "@@@")
         // TODO: add scrolls
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    @IBAction func playTrailer(_ sender: Any) {
+      //  self.performSegue(withIdentifier: "playMovieSegue", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  
+        
+            if let destination = segue.destination as? ViewController2 {
+                destination.movie = movie
+                
+              //  print("@@@" + "\(movie.id)")
+                //print(trailerId + "@@@segue")
+                
+                //let videoId = MovieService.trailerId(movieId: movie.id)
+                //destination.trailerURL = "https://www.youtube.com/watch?v=" + "\(videoId)"
+                
+                //print("@@@" + "\(destination.trailerURL)")
+                
+                //  print("@@@" + "\(movie.id)")
+                
+        }
     }
     
     
